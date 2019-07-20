@@ -5,7 +5,7 @@
   "minArea": 10000,
   "showVideo": true,
   "handlers": [
-    "reporter",
+    "console",
     "archive",
     "mail"
   ],

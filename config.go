@@ -51,6 +51,6 @@ func DefaultConfiguration() Configuration {
 		MinInterval: time.Second * 5,
 		MinArea:     10000,
 		ShowVideo:   true,
-		Handlers:    []string{"reporter", "archive"},
+		Handlers:    []string{"console", "archive"},
 		DataDir:     "data"}
 }

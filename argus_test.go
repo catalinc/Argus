@@ -67,7 +67,7 @@ func TestRunner_Close(t *testing.T) {
 
 func TestNewMotionHandler(t *testing.T) {
 	config := newMockConfiguration()
-	for _, typ := range []string{"reporter", "archive", "mail"} {
+	for _, typ := range []string{"console", "archive", "mail"} {
 		_, err := newMotionHandler(typ, config)
 		if err != nil {
 			t.Fatalf("cannot create motion handler for type %v", typ)
@@ -81,7 +81,7 @@ func TestNewMotionHandler(t *testing.T) {
 }
 
 func TestReporterHandler_Handle(t *testing.T) {
-	handler := reporterHandler{}
+	handler := consoleHandler{}
 	if err := handler.Handle(newTestMotionEvent()); err != nil {
 		t.Fatalf("error while handling event: %v", err)
 	}
@@ -159,7 +159,7 @@ func TestLoadConfiguration(t *testing.T) {
 		MinInterval: time.Second * 5,
 		MinArea:     10000,
 		ShowVideo:   false,
-		Handlers:    []string{"reporter,archive"},
+		Handlers:    []string{"console,archive"},
 		DataDir:     "data",
 		MailConfig: MailConfig{
 			From:           "user@example.net",
@@ -191,7 +191,7 @@ func TestDefaultConfiguration(t *testing.T) {
 		MinInterval: time.Second * 5,
 		MinArea:     10000,
 		ShowVideo:   true,
-		Handlers:    []string{"reporter", "archive"},
+		Handlers:    []string{"console", "archive"},
 		DataDir:     "data"}
 	defaultCfg := DefaultConfiguration()
 	if !reflect.DeepEqual(expectedCfg, defaultCfg) {
@@ -205,7 +205,7 @@ func newMockConfiguration() Configuration {
 		MinInterval: time.Duration(30) * time.Second,
 		MinArea:     10000,
 		ShowVideo:   false,
-		Handlers:    []string{"reporter"},
+		Handlers:    []string{"console"},
 		DataDir:     os.TempDir(),
 		MailConfig: MailConfig{
 			From:           "user@example.net",

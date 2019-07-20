@@ -23,8 +23,8 @@ type MotionHandler interface {
 
 func newMotionHandler(handler string, config Configuration) (MotionHandler, error) {
 	switch handler {
-	case "reporter":
-		return &reporterHandler{}, nil
+	case "console":
+		return &consoleHandler{}, nil
 	case "archive":
 		return &archiveHandler{dataDir: config.DataDir}, nil
 	case "mail":
@@ -38,9 +38,9 @@ func newMotionHandler(handler string, config Configuration) (MotionHandler, erro
 	}
 }
 
-type reporterHandler struct{}
+type consoleHandler struct{}
 
-func (r *reporterHandler) Handle(event *MotionEvent) error {
+func (r *consoleHandler) Handle(event *MotionEvent) error {
 	log.Printf("Motion detected at %s\n", event.Timestamp.Format(dateFormat))
 	return nil
 }
