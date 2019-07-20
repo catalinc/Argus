@@ -1,0 +1,16 @@
+[Unit]
+Description=Surveillance Service
+
+[Service]
+ExecStart=/home/USER/argus/argus -configFile /home/USER/argus/config.json
+WorkingDirectory=/home/USER/argus/
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/USER/.Xauthority"
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+RestartSec=30
+User=USER
+
+[Install]
+WantedBy=graphical.target

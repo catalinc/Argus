@@ -1,0 +1,21 @@
+{
+  "fps": 10,
+  "deviceId": "0",
+  "minInterval": 10000000000,
+  "minArea": 10000,
+  "showVideo": true,
+  "handlers": [
+    "reporter",
+    "archive",
+    "mail"
+  ],
+  "dataDir": "data",
+  "mailConfig": {
+    "from": "",
+    "to": "",
+    "serverHost": "",
+    "serverPort": 587,
+    "serverUser": "",
+    "serverPassword": ""
+  }
+}
