@@ -19,7 +19,7 @@ type MailConfig struct {
 // Configuration holds application wide parameters
 type Configuration struct {
 	Fps         uint          `json:"fps"`
-	DeviceId    string        `json:"deviceId"`
+	DeviceID    string        `json:"deviceId"`
 	MinInterval time.Duration `json:"minInterval"`
 	MinArea     float64       `json:"minArea"`
 	ShowVideo   bool          `json:"showVideo"`
@@ -47,7 +47,7 @@ func LoadConfiguration(path string) (Configuration, error) {
 func DefaultConfiguration() Configuration {
 	return Configuration{
 		Fps:         10,
-		DeviceId:    "0",
+		DeviceID:    "0",
 		MinInterval: time.Second * 5,
 		MinArea:     10000,
 		ShowVideo:   true,

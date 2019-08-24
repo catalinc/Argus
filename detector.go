@@ -2,10 +2,11 @@ package argus
 
 import (
 	"errors"
-	"gocv.io/x/gocv"
 	"image"
 	"image/color"
 	"time"
+
+	"gocv.io/x/gocv"
 )
 
 // MotionEvent holds the image frame and the time when motion is detected
@@ -17,7 +18,7 @@ type MotionEvent struct {
 // MotionDetector uses the video capture device to detect motion
 type MotionDetector interface {
 	// OpenDevice opens video capture device for motion detection
-	OpenDevice(deviceId string) error
+	OpenDevice(deviceID string) error
 	// DetectMotion motion in the video capture
 	// Returns non nil MotionEvent when motion has been detected
 	// Called at fixed intervals by the driver program
@@ -41,8 +42,8 @@ type openCVMotionDetector struct {
 	kernel    gocv.Mat
 }
 
-func (d *openCVMotionDetector) OpenDevice(deviceId string) error {
-	webcam, err := gocv.OpenVideoCapture(deviceId)
+func (d *openCVMotionDetector) OpenDevice(deviceID string) error {
+	webcam, err := gocv.OpenVideoCapture(deviceID)
 	if err != nil {
 		return err
 	}

@@ -21,7 +21,7 @@ func NewRunner(config Configuration, detector MotionDetector) *Runner {
 
 // Init opens the video capture device and registers motion handlers
 func (r *Runner) Init() error {
-	err := r.detector.OpenDevice(r.config.DeviceId)
+	err := r.detector.OpenDevice(r.config.DeviceID)
 	if err != nil {
 		return err
 	}

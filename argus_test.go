@@ -155,7 +155,7 @@ func TestLoadConfiguration(t *testing.T) {
 	defer os.Remove(tmpFile.Name())
 
 	expectedCfg := Configuration{
-		DeviceId:    "0",
+		DeviceID:    "0",
 		MinInterval: time.Second * 5,
 		MinArea:     10000,
 		ShowVideo:   false,
@@ -187,7 +187,7 @@ func TestLoadConfiguration(t *testing.T) {
 func TestDefaultConfiguration(t *testing.T) {
 	expectedCfg := Configuration{
 		Fps:         10,
-		DeviceId:    "0",
+		DeviceID:    "0",
 		MinInterval: time.Second * 5,
 		MinArea:     10000,
 		ShowVideo:   true,
@@ -201,7 +201,7 @@ func TestDefaultConfiguration(t *testing.T) {
 
 func newMockConfiguration() Configuration {
 	return Configuration{
-		DeviceId:    "0",
+		DeviceID:    "0",
 		MinInterval: time.Duration(30) * time.Second,
 		MinArea:     10000,
 		ShowVideo:   false,
@@ -246,7 +246,7 @@ type mockMotionDetector struct {
 	eventCount int
 }
 
-func (d *mockMotionDetector) OpenDevice(deviceId string) error {
+func (d *mockMotionDetector) OpenDevice(deviceID string) error {
 	d.registerCall("OpenDevice")
 	return nil
 }

@@ -1,7 +1,6 @@
 package argus
 
 import (
-	"errors"
 	"fmt"
 	"image/png"
 	"log"
@@ -34,7 +33,7 @@ func newMotionHandler(handler string, config Configuration) (MotionHandler, erro
 			to:      []string{config.MailConfig.To},
 			dataDir: config.DataDir}, nil
 	default:
-		return nil, errors.New(fmt.Sprintf("unknown handler: %v", handler))
+		return nil, fmt.Errorf("unknown handler: %v", handler)
 	}
 }
 
