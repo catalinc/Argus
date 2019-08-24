@@ -13,3 +13,10 @@
 
 # Idea
 .idea
+
+# vscode
+.vscode
+
+# motion capture data dirs
+cmd/data/
+data
