@@ -7,24 +7,24 @@ INSTALL_DIR=/home/$(USER)/argus
 all: test build
 
 test:
-	@echo "\e[96mRunning tests\e[0m"
+	@echo "Running tests"
 	go test
 
 build:
-	@echo "\e[96mBuilding executable\e[0m"
+	@echo "Building executable"
 	go build -o argus cmd/argus/main.go
 
 install_raspi: all
-	@echo "\e[96mInstalling service\e[0m"
+	@echo "Installing service"
 	rm -fr $(INSTALL_DIR)
 	mkdir -p $(INSTALL_DIR)
 	mv argus $(INSTALL_DIR)
 	cp config.json $(INSTALL_DIR)
 	cat argus.service | sed "s/USER/$(USER)/g" > $(INSTALL_DIR)/argus.service
 	sudo mv $(INSTALL_DIR)/argus.service $(SYSTEMD_SERVICES)
-	@echo "\e[96mService installed to $(INSTALL_DIR)\e[0m"
-	@echo "\e[97mTo test service run   : sudo systemctl start|stop argus.service\e[0m"
-	@echo "\e[97mTo enable service run : sudo systemctl enable argus.service\e[0m"
+	@echo "Service installed to $(INSTALL_DIR)"
+	@echo "To test service run   : sudo systemctl start|stop argus.service"
+	@echo "To enable service run : sudo systemctl enable argus.service"
 
 clean:
 	rm argus
