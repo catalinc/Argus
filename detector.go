@@ -79,7 +79,9 @@ func (d *openCVMotionDetector) DetectMotion(showVideo bool, minimumArea float64)
 
 	// Now find contours
 	contours := gocv.FindContours(d.imgThresh, gocv.RetrievalExternal, gocv.ChainApproxSimple)
-	for i, c := range contours {
+	for i := 0; i < contours.Size(); i++ {
+		c := contours.At(i)
+
 		area := gocv.ContourArea(c)
 		if area < minimumArea {
 			continue
