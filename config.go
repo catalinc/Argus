@@ -32,10 +32,10 @@ type Configuration struct {
 func LoadConfiguration(path string) (Configuration, error) {
 	var config Configuration
 	file, err := os.Open(path)
-	defer file.Close()
 	if err != nil {
 		return config, err
 	}
+	defer file.Close()
 	dec := json.NewDecoder(file)
 	if err := dec.Decode(&config); err != nil {
 		return config, err
