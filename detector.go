@@ -48,7 +48,7 @@ func (d *openCVMotionDetector) OpenDevice(deviceID string) error {
 		return err
 	}
 	d.webcam = webcam
-	d.window = gocv.NewWindow("Motion")
+	d.window = gocv.NewWindow("Motion Detector")
 	d.img = gocv.NewMat()
 	d.imgDelta = gocv.NewMat()
 	d.imgThresh = gocv.NewMat()
