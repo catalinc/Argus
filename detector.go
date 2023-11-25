@@ -102,7 +102,7 @@ func (d *openCVMotionDetector) DetectMotion(showVideo bool, minimumArea float64)
 		status = "Ready"
 		statusColor = color.RGBA{0, 255, 0, 0}
 	}
-	gocv.PutText(&d.img, status, image.Pt(10, 20), gocv.FontHersheyPlain, 1.2, statusColor, 2)
+	gocv.PutText(&d.img, status, image.Pt(10, 25), gocv.FontHersheySimplex, 1, statusColor, 2)
 
 	if showVideo {
 		d.window.IMShow(d.img)
