@@ -89,10 +89,8 @@ func (d *openCVMotionDetector) DetectMotion(showVideo bool, minimumArea float64)
 
 		motion = true
 
-		gocv.DrawContours(&d.img, contours, i, color.RGBA{255, 0, 0, 0}, 2)
-
 		rect := gocv.BoundingRect(c)
-		gocv.Rectangle(&d.img, rect, color.RGBA{0, 0, 255, 0}, 2)
+		gocv.Rectangle(&d.img, rect, color.RGBA{255, 0, 0, 0}, 2)
 	}
 
 	var status string
